@@ -27,7 +27,7 @@ class RegisterController extends Controller
     {
         $this->registerService->store($request->validated());
 
-        return redirect()->route()
+        return redirect()->route('login')
             ->with('success', 'You have successfully registered!');
     }
 

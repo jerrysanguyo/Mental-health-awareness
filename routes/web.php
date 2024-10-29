@@ -18,10 +18,10 @@ Route::get('/home', [HomeController::class, 'index'])
 // registration
 Route::get('/registration', [RegisterController::class, 'index'])
     ->name('registration');
-Route::post('/registration/store', [RegistrationController::class, 'store'])
+Route::post('/registration/store', [RegisterController::class, 'store'])
     ->name('register.store');
 // login
-Route::get('/Log-in', [LoginController::class, 'index'])
-    ->name('Login');
-Route::post('Log-in/check', [LoginController::class, 'login'])
+Route::get('/login', [LoginController::class, 'index'])
+    ->name('login');
+Route::post('Login/check', [LoginController::class, 'login'])
     ->name('login.check');

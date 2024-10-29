@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\{
-    Models\Users,
+    Models\User,
 };
 use Illuminate\Support\{
     Facades\Hash,
@@ -15,6 +15,7 @@ class RegisterService
     {
         return User::create([
             'user_name' =>  $data['user_name'],
+            'full_name' =>  $data['full_name'],
             'password'  =>  Hash::make($data['password']),
             'role'      =>  'user',
         ]);

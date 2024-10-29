@@ -18,10 +18,10 @@
                                 <span class="fs-1 ">Registration</span>
                                 <span class="fs-6 text-body-secondary">Don't have an account? Create your <br> account, it takes less than a minute.</span>
                                 <span class="fs-6 mb-4">
-                                    <a href="{{ route('Login') }}" class="text-decoration-none">Already have an account</a>
+                                    <a href="{{ route('login') }}" class="text-decoration-none">Already have an account</a>
                                 </span>
                             </div>
-                            <form method="POST" action="{{ route('register') }}">
+                            <form method="POST" action="{{ route('register.store') }}">
                                 @csrf
 
                                 <div class="row mb-3">

@@ -50,6 +50,15 @@ body {
     text-align: center;
 }
 
+.responsive-height {
+    height: 100vh; 
+}
+
+.merged-text {
+    font-size: 24px;
+    line-height: 1.5;
+}
+
 /* Card Background Colors */
 .bg-teal-green { background-color: #66CDAA; }
 .bg-soft-lavender { background-color: #D8BFD8; }
@@ -64,20 +73,9 @@ body {
 .bg-periwinkle { background-color: #CCCCFF; }  
 .bg-blush { background-color: #FFC0CB; }       
 
-/* Add this CSS */
-.responsive-height {
-    height: 100vh; /* Default for larger screens */
-}
-
-.merged-text {
-    font-size: 24px; /* Default font size */
-    line-height: 1.5;
-}
-
-/* Medium screens (tablets) */
 @media (max-width: 992px) {
     .merged-text {
-        font-size: 20px; /* Slightly smaller font size */
+        font-size: 20px;
     }
 }
 
@@ -85,14 +83,10 @@ body {
     .responsive-height {
         height: auto; 
     }
-    .merged-text {
-        font-size: 100px; /* Font size equivalent to 16px */
-    }
 }
 
-/* Extra small screens */
 @media (max-width: 576px) {
     .merged-text {
-        font-size: 20px; /* Further reduced font size */
+        font-size: 20px;
     }
 }

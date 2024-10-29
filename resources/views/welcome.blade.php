@@ -17,6 +17,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/welcome.css'])
 </head>
 <body class="antialiased">
+    @include('component/welcome/nav')
     <div class="container-fluid">
         <div class="responsive-height d-flex justify-content-center align-items-center">
             <div class="col-lg-12 col-md-12 col-sm-12">

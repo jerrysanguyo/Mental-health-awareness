@@ -24,14 +24,14 @@
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
                                     <div class="row mb-3">
-                                        <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                                        <label for="user_name" class="col-md-4 col-form-label text-md-end">{{ __('Username') }}</label>
 
                                         <div class="col-md-6">
-                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                            name="email" value="{{ old('email') }}" placeholder="Email address"
-                                            required autocomplete="email" autofocus>
+                                            <input id="user_name" type="user_name" class="form-control @error('user_name') is-invalid @enderror"
+                                            name="user_name" value="{{ old('user_name') }}" placeholder="Username"
+                                            required autocomplete="user_name" autofocus>
 
-                                            @error('email')
+                                            @error('user_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
