@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Answer;
 use App\Models\Question;
+use App\Models\User;
 
 class AnswerSeeder extends Seeder
 {
@@ -19,11 +20,7 @@ class AnswerSeeder extends Seeder
                     'Several days',
                     'More than half the days',
                     'Nearly every day',
-                ],
-                'recommendations' => [
-                    "It seems like you have been feeling quite low recently. Reaching out to a counselor or therapist could help you explore these feelings further. Engaging in activities that you enjoy, even if it's hard, may also help improve your mood.",
-                    "It’s common to have some down days. Consider activities that can lift your mood, such as exercise, hobbies, or connecting with friends.",
-                ],
+                ]
             ],
             // Sleep Patterns
             [
@@ -33,28 +30,65 @@ class AnswerSeeder extends Seeder
                     'Poor',
                     'Good',
                     'Excellent',
-                ],
-                'recommendations' => [
-                    "Poor sleep quality can significantly impact your well-being. Try establishing a bedtime routine, avoiding screens before sleep, and creating a comfortable sleep environment. If issues persist, consider seeking medical advice.",
-                    "It sounds like you’re getting good sleep, which is great! Keep maintaining your healthy sleep habits.",
-                ],
+                ]
             ],
-            // Add other questions similarly...
+            // Energy Levels
+            [
+                'question' => "How often do you feel exhausted or lacking energy throughout the day?",
+                'options' => [
+                    'Rarely',
+                    'Sometimes',
+                    'Often',
+                    'Always',
+                ]
+            ],
+            // Social Interaction
+            [
+                'question' => "How comfortable do you feel in social settings?",
+                'options' => [
+                    'Very uncomfortable',
+                    'Uncomfortable',
+                    'Comfortable',
+                    'Very comfortable',
+                ]
+            ],
+            // Stress Management
+            [
+                'question' => "How well are you able to manage stress in your daily life?",
+                'options' => [
+                    'Not well at all',
+                    'Somewhat well',
+                    'Well',
+                    'Very well',
+                ]
+            ],
+            // General Happiness
+            [
+                'question' => "Overall, how satisfied are you with your life right now?",
+                'options' => [
+                    'Very dissatisfied',
+                    'Dissatisfied',
+                    'Satisfied',
+                    'Very satisfied',
+                ]
+            ],
         ];
 
         foreach ($answers as $answer) {
             $question = Question::where('name', $answer['question'])->first();
 
-            if ($question) {
-                foreach ($answer['options'] as $option) {
-                    Answer::create([
-                        'question_id' => $question->id,
-                        'name' => $option,
-                        'remarks' => $answer['recommendations'][0] ?? 'No remarks available',
-                        'created_by' => 1, // Replace with actual user ID or factory-generated value
-                        'updated_by' => 1, // Replace with actual user ID or factory-generated value
-                    ]);
-                }
+            if (!$question) {
+                continue; 
+            }
+
+            foreach ($answer['options'] as $option) {
+                Answer::create([
+                    'question_id' => $question->id,
+                    'name' => $option,
+                    'remarks' => 'Seeder generated',
+                    'created_by' => User::inRandomOrder()->first()->id,
+                    'updated_by' => User::inRandomOrder()->first()->id,
+                ]);
             }
         }
     }

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     HomeController,
+    ResponseController,
     Auth\RegisterController,
     Auth\LoginController,
     CMS\QuestionController,
@@ -37,6 +38,7 @@ Route::middleware(['auth', 'role:superadmin'])
             ->name('dashboard');
         Route::resource('question', QuestionController::class);
         Route::resource('answer', AnswerController::class);
+        Route::resource('response', ResponseController::class);
     });
 
 // Admin
@@ -46,6 +48,7 @@ Route::middleware(['auth', 'role:admin'])
     ->group(function () {
         Route::get('/dashboard', [HomeController::class, 'index'])
             ->name('dashboard');
+        Route::resource('response', ResponseController::class);
     });
 
 // User
@@ -55,4 +58,5 @@ Route::middleware(['auth', 'role:user'])
     ->group(function () {
         Route::get('/dashboard', [HomeController::class, 'index'])
             ->name('dashboard');
+        Route::resource('response', ResponseController::class);
     });
