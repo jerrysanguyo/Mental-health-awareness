@@ -6,7 +6,25 @@
         <div class="col-md-12">
             <div class="card border shadow">
                 <div class="card-body">
-                    <h2 class="mb-5">Mental health assessment</h2>
+                    <h2 class="mb-5">Mental Health Assessment</h2>
+
+                    {{-- Display Recommendations if they exist --}}
+                    @if(session('recommendations'))
+                        <div class="alert alert-info">
+                            <h4>Personalized Recommendations</h4>
+                            <ul class="list-unstyled">
+                                @foreach(session('recommendations') as $recommendation)
+                                    <li class="mb-3">
+                                        <strong>Question:</strong> {{ $recommendation['question'] }}<br>
+                                        <strong>Your Answer:</strong> {{ $recommendation['answer'] }}<br>
+                                        <strong>Recommendation:</strong> {{ $recommendation['recommendation'] }}
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    {{-- Form for answering questions --}}
                     <form action="{{ route($userRole . '.response.store') }}" method="POST">
                         @csrf
                         @foreach($listOfAnswer->groupBy('question_id') as $questionId => $answers)

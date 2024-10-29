@@ -21,8 +21,11 @@ class ResponseController extends Controller
     public function store(StoreResponseRequest $request)
     {
         $user = Auth::user();
-        $this->responseService->storeResponses($user, $request->validated()['responses']);
+        $recommendations = $this->responseService->storeResponses($user, $request->validated()['responses']);
 
-        return redirect()->route($user->role . '.dashboard')->with('success', 'Your responses have been saved successfully!');
+        return redirect()->route($user->role . '.dashboard')->with([
+            'success' => 'Your responses have been saved successfully!',
+            'recommendations' => $recommendations
+        ]);
     }
 }
