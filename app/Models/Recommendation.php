@@ -22,9 +22,14 @@ class Recommendation extends Model
         return self::all();
     }
 
+    public static function getRecommendationPerUser($user)
+    {
+        return self::where('user_id', $user);
+    }
+    
     public function response()
     {
-        return $this->belongsTo(Response::class, 'reponse_id');
+        return $this->belongsTo(Response::class, 'response_id');
     }
 
     public function user()
