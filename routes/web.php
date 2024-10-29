@@ -7,9 +7,9 @@ use App\Http\Controllers\{
     Auth\LoginController,
 };
 
-Route::get('/', function () {
+Route::get('/', function () { 
     return view('welcome');
-});
+})->name('welcome');
 
 Auth::routes();
 // to be deleted.

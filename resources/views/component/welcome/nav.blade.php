@@ -12,7 +12,10 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Talk with us</a>
+                        <a class="nav-link" aria-current="page" 
+                            href="{{ auth()->check() ? route($userRole . '.dashboard') : route('login') }}">
+                            Well-being Assessment
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="#">Mind your Well-Beign at work</a>

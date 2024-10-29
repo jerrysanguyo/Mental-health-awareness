@@ -31,7 +31,7 @@ class LoginService
         session()->invalidate();
         session()->regenerateToken();
 
-        return redirect()->route('login')
+        return redirect()->route('welcome')
             ->with('success', 'Logged out successfully!');
     }
 }
