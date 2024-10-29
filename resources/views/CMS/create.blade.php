@@ -12,6 +12,18 @@
                 <!-- modal body -->
                 <div class="modal-body">
                     <!-- input form -->
+                    @if($pageTitle === 'answer')
+                    <div class="row mb-3">
+                        <label for="question_id" class="col-md-4 col-form-label text-md-end">{{ __('Questions') }}</label>
+                        <div class="col-md-6">
+                            <select name="question_id" id="question_id" class="form-select @error('question_id') is-invalid @enderror">
+                                @foreach($listOfQuestion as $question)
+                                <option value="{{ $question->id }}">{{ $question->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    @endif
                     <div class="row mb-3">
                         <label for="name" class="col-md-4 col-form-label text-md-end">{{ __($pageTitle . ' name') }}</label>
                         <div class="col-md-6">
@@ -20,6 +32,7 @@
                             required autocomplete="name" autofocus>
                         </div>
                     </div>
+
                     <div class="row mb-3">
                         <label for="remarks" class="col-md-4 col-form-label text-md-end">{{ __('Remarks') }}</label>
                         <div class="col-md-6">

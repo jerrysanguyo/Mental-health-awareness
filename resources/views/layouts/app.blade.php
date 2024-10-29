@@ -47,6 +47,11 @@
                                             <i class="fa-solid fa-users mx-1"></i>Question
                                         </a>
                                     </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route($userRole .'.answer.index') }}">
+                                            <i class="fa-solid fa-users mx-1"></i>Answer
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                         @endif

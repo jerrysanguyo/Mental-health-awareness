@@ -26,6 +26,18 @@
                         @method('PUT')
                         <span class="fs-3">{{ $pageTitle }} update</span>
                         <hr>
+                        @if($pageTitle === 'answer')
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <label for="question_id" class="col-form-label">{{ __('Questions') }}</label>
+                                <select name="question_id" id="question_id" class="form-select @error('question_id') is-invalid @enderror">
+                                    @foreach($listOfQuestion as $question)
+                                    <option value="{{ $question->id }}" {{ $$pageTitle && $$pageTitle->question_id === $question->id ? 'selected' : '' }}>{{ $question->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        @endif
                         <div class="row">
                             <div class="col-lg-12 col-md-12">
                                 <label for="name" class="form-label">{{ $pageTitle }} name:</label>

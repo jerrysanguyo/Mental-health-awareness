@@ -6,6 +6,7 @@ use App\Http\Controllers\{
     Auth\RegisterController,
     Auth\LoginController,
     CMS\QuestionController,
+    CMS\AnswerController,
 };
 
 Route::get('/', function () { 
@@ -35,6 +36,7 @@ Route::middleware(['auth', 'role:superadmin'])
         Route::get('/dashboard', [HomeController::class, 'index'])
             ->name('dashboard');
         Route::resource('question', QuestionController::class);
+        Route::resource('answer', AnswerController::class);
     });
 
 // Admin

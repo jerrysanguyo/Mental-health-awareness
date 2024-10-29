@@ -37,6 +37,9 @@
                 <tbody>
                     @foreach($data as $item)
                     <tr>
+                        @if($pageTitle === 'answer' )
+                            <td>{{ $item->question->name ?? 'N/A' }}</td>
+                        @endif
                         <td>{{ $item->name ?? 'N/A' }}</td>
                         <td>{{ $item->remarks ?? 'N/A' }}</td>
                         <td>{{ $item->createdBy->full_name ?? 'N/A' }}</td>
