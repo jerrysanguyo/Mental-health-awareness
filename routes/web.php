@@ -25,3 +25,30 @@ Route::get('/login', [LoginController::class, 'index'])
     ->name('login');
 Route::post('Login/check', [LoginController::class, 'login'])
     ->name('login.check');
+
+// Superadmin
+Route::middleware(['auth', 'role:superadmin'])
+    ->prefix('superadmin')
+    ->name('superadmin.')
+    ->group(function () {
+        Route::get('/dashboard', [HomeController::class, 'index'])
+            ->name('dashboard');
+    });
+
+// Admin
+Route::middleware(['auth', 'role:admin'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+        Route::get('/dashboard', [HomeController::class, 'index'])
+            ->name('dashboard');
+    });
+
+// User
+Route::middleware(['auth', 'role:user'])
+    ->prefix('user')
+    ->name('user.')
+    ->group(function () {
+        Route::get('/dashboard', [HomeController::class, 'index'])
+            ->name('dashboard');
+    });
