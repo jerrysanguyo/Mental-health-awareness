@@ -45,39 +45,37 @@
                             <input type="submit" value="Submit" class="btn btn-primary">
                         </form>
                     @else
-                        @if($recommendation)
                         <h2 class="mb-3">AI Recommendations for Your Assessment</h2>
-                            @foreach($recommendation as $recom)
+                        @foreach($recommendations as $recom)
+                            <div class="row">
                                 <div class="row">
-                                    <div class="row">
-                                        <div class="col-lg-2">
-                                            <h5>Question:</h5>
-                                        </div>
-                                        <div class="col-lg-10">
-                                            <!-- can't fetch instantly. -->
-                                            <span>{{ $recom->response->question->name ?? '' }}</span>
-                                        </div>
+                                    <div class="col-lg-2">
+                                        <h5>Question:</h5>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-lg-2">
-                                            <h5>Answer:</h5>
-                                        </div>
-                                        <div class="col-lg-10">
-                                            <span>{{ $recom->response->answer->name ?? '' }}</span>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-2">
-                                            <h5>Recommendation:</h5>
-                                        </div>
-                                        <div class="col-lg-10">
-                                            <span>{{ $recom->recommendation ?? '' }}</span>
-                                        </div>
+                                    <div class="col-lg-10">
+                                        <!-- can't fetch instantly. -->
+                                        <span>{{ $recom->response->question->name ?? '' }}</span>
                                     </div>
                                 </div>
-                                <hr>
-                            @endforeach
-                        @endif
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <h5>Answer:</h5>
+                                    </div>
+                                    <div class="col-lg-10">
+                                        <span>{{ $recom->response->answer->name ?? '' }}</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <h5>Recommendation:</h5>
+                                    </div>
+                                    <div class="col-lg-10">
+                                        <span>{{ $recom->recommendation ?? '' }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                        @endforeach
                     @endif
                 </div>
             </div>
