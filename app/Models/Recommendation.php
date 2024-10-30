@@ -24,7 +24,12 @@ class Recommendation extends Model
 
     public static function getRecommendationPerUser($user)
     {
-        return self::where('user_id', $user);
+        return self::where('user_id', $user)->get();
+    }
+
+    public static function recommendationCheck($user)
+    {
+        return self::where('user_id', $user)->first();
     }
     
     public function response()

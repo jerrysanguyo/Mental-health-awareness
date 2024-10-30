@@ -38,8 +38,8 @@ class QuestionSeeder extends Seeder
 
         foreach ($questions as $question) {
             Question::create(array_merge($question, [
-                'created_by' => 1, // Replace with actual user ID or factory-generated value
-                'updated_by' => 1, // Replace with actual user ID or factory-generated value
+                'created_by' => 1, 
+                'updated_by' => 1,
             ]));
         }
     }

@@ -30,4 +30,9 @@ class Response extends Model
     {
         return $this->belongsTo(Answer::class, 'answer_id');
     }
+    
+    public function recommendation()
+    {
+        return $this->hasMany(Recommendation::class, 'response_id');
+    }
 }

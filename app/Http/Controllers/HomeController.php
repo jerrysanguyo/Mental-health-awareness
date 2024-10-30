@@ -23,11 +23,13 @@ class HomeController extends Controller
     {
         $user = Auth::user()->id;
         $listOfAnswer = Answer::with('question')->get();
-        $recommendation = Recommendation::getRecommendationPerUser($user)->get();
+        $recommendation = Recommendation::getRecommendationPerUser($user);
+        $recomCheck = Recommendation::recommendationCheck($user);
     
         return view('home', compact(
             'listOfAnswer',
-            'recommendation'
+            'recommendation',
+            'recomCheck'
         ));
     }
 }
