@@ -6,8 +6,7 @@
         <div class="col-md-12">
             <div class="card border shadow">
                 <div class="card-body">
-                    {{-- Display Recommendations if they exist --}}
-                    @if(session('recommendations'))
+                    <!-- @if(session('recommendations'))
                         <div class="alert alert-info">
                             <h4>OpenAI Recommendations</h4>
                             <ul class="list-unstyled">
@@ -20,7 +19,16 @@
                                 @endforeach
                             </ul>
                         </div>
+                    @endif -->
+                    @if($summary)
+                        @foreach($summary as $sum)
+                            <div class="alert alert-primary mt-4">
+                                <h4>Summary of Recommendations</h4>
+                                <p>{{ $sum->summary }}</p>
+                            </div>
+                        @endforeach
                     @endif
+                    
                     @if(!$recomCheck)
                     <h1 class="mb-5">Mental Health Assessment</h1>
                         <form action="{{ route($userRole . '.response.store') }}" method="POST">
@@ -47,7 +55,8 @@
                             <input type="submit" value="Submit" class="btn btn-primary float-end">
                         </form>
                     @else
-                        <h2 class="mb-3">AI Recommendations for Your Assessment</h2>
+                    <div class="alert alert-info">
+                        <h2 class="mb-3">OpenAI Recommendations for Your Assessment</h2>
                         @foreach($recommendations as $recom)
                             <div class="row">
                                 <div class="row">
@@ -78,6 +87,7 @@
                             </div>
                             <hr>
                         @endforeach
+                    </div>
                     @endif
                 </div>
             </div>

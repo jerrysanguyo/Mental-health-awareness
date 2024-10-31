@@ -4,7 +4,9 @@ namespace App\Services;
 
 use App\Models\Response;
 use App\Models\Recommendation;
+use App\Models\Summary;
 use App\Services\OpenAIService;
+use Illuminate\Support\Facades\Session;
 
 class ResponseService
 {
@@ -18,6 +20,7 @@ class ResponseService
     public function storeResponses($user, $responses)
     {
         $recommendations = [];
+        $recommendationTexts = '';
 
         foreach ($responses as $response) {
             // Store or update the response
@@ -31,24 +34,39 @@ class ResponseService
                 ]
             );
 
+            // Generate individual recommendation
             $questionText = $storedResponse->question->name;
             $answerText = $storedResponse->answer->name;
             $prompt = "Based on the answer: '$answerText' to the question: '$questionText', generate a mental health recommendation.";
 
             $recommendationText = $this->openAIService->generateResponse($prompt);
 
+            // Store each recommendation in the database
             Recommendation::create([
                 'user_id' => $user->id,
                 'response_id' => $storedResponse->id,
                 'recommendation' => $recommendationText,
             ]);
 
+            // Collect recommendation texts for summary generation
+            $recommendationTexts .= "Question: $questionText, Answer: $answerText, Recommendation: $recommendationText.\n";
+            
             $recommendations[] = [
                 'question' => $questionText,
                 'answer' => $answerText,
                 'recommendation' => $recommendationText,
             ];
         }
+
+        // Generate a concise summary using OpenAI
+        $summaryPrompt = "Summarize the following recommendations concisely:\n" . $recommendationTexts;
+        $conciseSummary = $this->openAIService->generateResponse($summaryPrompt);
+
+        // Store the summary in the summaries table
+        Summary::updateOrCreate(
+            ['user_id' => $user->id],
+            ['summary' => $conciseSummary]
+        );
 
         return $recommendations;
     }

@@ -10,6 +10,7 @@ use App\{
     Models\Question,
     Models\Answer,
     Models\Recommendation,
+    Models\Summary,
 };
 
 class HomeController extends Controller
@@ -25,11 +26,13 @@ class HomeController extends Controller
         $listOfAnswer = Answer::with('question')->get();
         $recommendations = Recommendation::getRecommendationPerUser($user);
         $recomCheck = Recommendation::recommendationCheck($user);
+        $summary = Summary::getSummary($user)->get();
     
         return view('home', compact(
             'listOfAnswer',
             'recommendations',
-            'recomCheck'
+            'recomCheck',
+            'summary'
         ));
     }
 }
