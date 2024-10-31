@@ -100,9 +100,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Mind your well-being</a>
+                    <a class="nav-link" href="{{ route('well.being') }}">Mind your well-being</a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropup">
                     <a class="nav-link dropdown-toggle" href="#" id="interactiveGamesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Interactive games
                     </a>

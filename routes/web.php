@@ -16,12 +16,10 @@ Route::get('/', function () {
 })->name('welcome');
 
 Auth::routes();
-// to be deleted.
-Route::get('/home', [HomeController::class, 'index'])
-    ->name('home');
-
 Route::get('/main', [PublicController::class, 'index'])
     ->name('main.page');
+Route::get('well-being', [PublicController::class, 'wellBeing'])
+    ->name('well.being');
 // registration
 Route::get('/registration', [RegisterController::class, 'index'])
     ->name('registration');

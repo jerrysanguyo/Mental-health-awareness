@@ -8,4 +8,9 @@ class PublicController extends Controller
     {
         return view('main');
     }
+
+    public function wellBeing()
+    {
+        return view('well_being');
+    }
 }
