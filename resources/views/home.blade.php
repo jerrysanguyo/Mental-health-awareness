@@ -9,7 +9,7 @@
                     {{-- Display Recommendations if they exist --}}
                     @if(session('recommendations'))
                         <div class="alert alert-info">
-                            <h4>GPT Recommendations</h4>
+                            <h4>OpenAI Recommendations</h4>
                             <ul class="list-unstyled">
                                 @foreach(session('recommendations') as $recommendation)
                                     <li class="mb-3">

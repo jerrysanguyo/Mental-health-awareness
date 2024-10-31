@@ -11,25 +11,26 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.bunny.net/css?family=Nunito|Poppins:wght@300;400;600;700" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/welcome.css'])
 </head>
-<body class="antialiased">
-    @include('component/welcome/nav')
-    <div class="container-fluid">
-        <div class="responsive-height d-flex justify-content-center align-items-center">
-            <div class="col-lg-12 col-md-12 col-sm-12">
-                    @include('component/welcome/mental2')
-                    @include('component/welcome/health2')
-            </div>
+<body>
+    <div class="row">
+        <div class="d-flex justify-content-center">
+            <img id="logo" src="{{ asset('image/IT.webp') }}" alt="Touch ID Icon">
+            <img id="logo" src="{{ asset('image/city.webp') }}" alt="Touch ID Icon">
+            <img id="logo" src="{{ asset('image/cho.webp') }}" alt="Touch ID Icon">
         </div>
     </div>
-    <script>
-        function flipCard(card) {
-            card.classList.toggle("flipped");
-        }
-    </script>
+    <div class="container-fluid">
+        <div class="responsive-height text-center">
+            <h1 id="glow"><strong>MIND YOUR<br>WELL-BEING AT WORK</strong></h1>
+            <a href="{{ route('main.page') }}">
+                <img src="{{ asset('image/touch_id.webp') }}" alt="Touch ID Icon">
+            </a>
+        </div>
+    </div>
 </body>
 </html>

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     HomeController,
     ResponseController,
+    PublicController,
     Auth\RegisterController,
     Auth\LoginController,
     CMS\QuestionController,
@@ -18,6 +19,9 @@ Auth::routes();
 // to be deleted.
 Route::get('/home', [HomeController::class, 'index'])
     ->name('home');
+
+Route::get('/main', [PublicController::class, 'index'])
+    ->name('main.page');
 // registration
 Route::get('/registration', [RegisterController::class, 'index'])
     ->name('registration');
