@@ -4,9 +4,10 @@
 }
 
 body {
-    background: url('../../public/image/bg.webp') no-repeat center center fixed;
+    /* background: url('../../public/image/bg.webp') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: cover; */
+    background-color: #FAF9F6;
 }

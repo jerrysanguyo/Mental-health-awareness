@@ -78,9 +78,21 @@
                                     </div>
                                 </div>
 
+                                <div class="row mb-3">
+                                    <div class="col-md-6 offset-md-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} onclick="toggleSubmitButton()">
+
+                                            <label class="form-check-label" for="remember">
+                                                By checking this box, you consent to our collection and processing of your personal data in accordance with our <a href="https://www.taguig.gov.ph/data-privacy-act/" target="_blank">Privacy Policy</a>.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="row mb-0">
                                     <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn btn-primary">
+                                        <button type="submit" class="btn btn-primary" id="submit-button" disabled>
                                             {{ __('Register') }}
                                         </button>
                                     </div>
@@ -93,4 +105,12 @@
         </div>
     </div>
 </div>
+
+<script>
+    function toggleSubmitButton() {
+        const checkbox = document.getElementById('remember');
+        const submitButton = document.getElementById('submit-button');
+        submitButton.disabled = !checkbox.checked;
+    }
+</script>
 @endsection

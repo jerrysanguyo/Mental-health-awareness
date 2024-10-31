@@ -17,7 +17,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/welcome.css'])
 </head>
 <body>
-    <div class="row">
+    <div class="row mt-5">
         <div class="d-flex justify-content-center">
             <img id="logo" src="{{ asset('image/IT.webp') }}" alt="Touch ID Icon">
             <img id="logo" src="{{ asset('image/city.webp') }}" alt="Touch ID Icon">
