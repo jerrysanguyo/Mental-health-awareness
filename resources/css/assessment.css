@@ -1,0 +1,26 @@
+.btn.btn-primary {
+    background-color: #727CF5;
+    border-color: #727CF5;
+}
+
+body {
+    background-color: #FAF9F6;
+}
+
+.btn-check:checked + .btn-primary {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    color: #fff; 
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.question{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -22,27 +22,29 @@
                         </div>
                     @endif
                     @if(!$recomCheck)
-                    <h2 class="mb-3">Mental Health Assessment</h2>
-                        {{-- Form for answering questions --}}
+                    <h1 class="mb-5">Mental Health Assessment</h1>
                         <form action="{{ route($userRole . '.response.store') }}" method="POST">
                             @csrf
                             @foreach($listOfAnswer->groupBy('question_id') as $questionId => $answers)
                                 <div class="row mb-4">
                                     <div class="col-12">
-                                        <h4>Question: {{ $answers->first()->question->name }}</h4>
+                                        <h2 class="question">{{ $answers->first()->question->name }}</h2>
+                                    </div>
+                                    <div class="row">
                                         @foreach($answers as $index => $answer)
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="responses[{{ $questionId }}][answer_id]" id="answer_{{ $answer->id }}" value="{{ $answer->id }}">
+                                            <div class="col-lg-3 col-md-6 col-sm-12 d-flex justify-content-center mb-2">
                                                 <input type="hidden" name="responses[{{ $questionId }}][question_id]" value="{{ $questionId }}">
-                                                <label class="form-check-label" for="answer_{{ $answer->id }}">
+                                                <input type="radio" class="btn-check" name="responses[{{ $questionId }}][answer_id]" id="answer_{{ $answer->id }}" value="{{ $answer->id }}" autocomplete="off">
+                                                <label class="btn btn-primary w-100" for="answer_{{ $answer->id }}">
                                                     {{ chr(65 + $index) }}. {{ $answer->name }}
                                                 </label>
                                             </div>
                                         @endforeach
+                                        <hr>
                                     </div>
                                 </div>
                             @endforeach
-                            <input type="submit" value="Submit" class="btn btn-primary">
+                            <input type="submit" value="Submit" class="btn btn-primary float-end">
                         </form>
                     @else
                         <h2 class="mb-3">AI Recommendations for Your Assessment</h2>

@@ -95,7 +95,9 @@
                     <a class="nav-link active" aria-current="page" href="{{route('welcome')}}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">Well-being assessment</a>
+                    <a class="nav-link" href="{{ auth()->check() ? route($userRole . '.dashboard') : route('login') }}">
+                        Well-being assessment
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Mind your well-being</a>
