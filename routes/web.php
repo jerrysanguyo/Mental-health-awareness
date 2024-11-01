@@ -5,6 +5,7 @@ use App\Http\Controllers\{
     HomeController,
     ResponseController,
     PublicController,
+    SeederController,
     Auth\RegisterController,
     Auth\LoginController,
     CMS\QuestionController,
@@ -41,6 +42,8 @@ Route::middleware(['auth', 'role:superadmin'])
         Route::resource('question', QuestionController::class);
         Route::resource('answer', AnswerController::class);
         Route::resource('response', ResponseController::class);
+        Route::post('/table-seed', [SeederController::class, 'seeder'])
+            ->name('table.seed');
     });
 
 // Admin

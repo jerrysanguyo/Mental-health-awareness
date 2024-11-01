@@ -69,6 +69,11 @@
                     @endforeach
                 </tbody>
             </table>
+            <form action="{{ route('superadmin.table.seed') }}" method="post">
+                @csrf
+                <input type="hidden" name="seed" value="{{ $pageTitle }}">
+                <input type="submit" value="Seed" class="btn btn-primary">
+            </form>
         </div>
     </div>
 </div>
