@@ -2,14 +2,15 @@
 
 namespace App\Services;
 
-use App\Models\Freedom;
+use App\Models\Freedomwall;
 
 class FreedomwallService
 {
-    public function store(array $data): Freedom
+    public function store(array $data): Freedomwall
     {
-        return Freedom::create([
+        return Freedomwall::create([
             'nick_name' =>  $data['nick_name'],
+            'title'     =>  $data['title'],
             'post'      =>  $data['post'],
         ]);
     }

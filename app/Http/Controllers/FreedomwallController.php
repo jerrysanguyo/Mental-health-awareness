@@ -4,27 +4,33 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreFreedomwallRequest;
 use App\Http\Requests\UpdateFreedomwallRequest;
-use App\Models\Freedomwall;
+use App\{
+    Models\Freedomwall,
+    Services\FreedomwallService,
+};
 
 class FreedomwallController extends Controller
 {
+    protected $freedomwallService;
+
+    public function __construct(FreedomwallService $freedomwallService)
+    {
+        $this->freedomwallService = $freedomwallService;
+    }
+
     public function index()
     {
-        return view('freedom.index');
+        $posts = Freedomwall::getAllPosts();
+        return view('freedom.index', compact(
+            'posts',
+        ));
     }
     
     public function store(StoreFreedomwallRequest $request)
     {
-        //
-    }
-    
-    public function show(Freedomwall $freedomwall)
-    {
-        //
-    }
-    
-    public function destroy(Freedomwall $freedomwall)
-    {
-        //
+        $this->freedomwallService->store($request->validated());
+
+        return redirect()->route('freedomwall.index')
+            ->with('success', 'Posted successfully!');
     }
 }

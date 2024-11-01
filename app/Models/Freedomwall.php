@@ -12,6 +12,12 @@ class Freedomwall extends Model
     protected $table = 'freedomwalls';
     protected $fillable = [
         'nick_name',
+        'title',
         'post',
     ];
+
+    public static function getAllPosts()
+    {
+        return self::all();
+    }
 }

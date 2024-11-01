@@ -21,6 +21,11 @@
                                         <a href="{{ route('registration') }}" class="text-decoration-none">Kindly create your account if you do not have one.</a>
                                     </span>
                                 </div>
+                                @if(session('success'))
+                                    <div class="alert alert-success">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
                                     <div class="row mb-3">

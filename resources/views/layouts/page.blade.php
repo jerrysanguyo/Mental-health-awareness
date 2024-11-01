@@ -54,7 +54,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" aria-disabled="true">Freedom wall!!!</a>
+                        <a class="nav-link" href="{{ route('freedomwall.index') }}">Freedom wall!!!</a>
                     </li>
                 </ul>
             </div>

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('freedomwalls', function (Blueprint $table) {
             $table->id();
             $table->string('nick_name')->nullable();
+            $table->string('title');
             $table->longText('post');
             $table->timestamps();
         });

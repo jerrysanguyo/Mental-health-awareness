@@ -6,6 +6,7 @@ use App\Http\Controllers\{
     ResponseController,
     PublicController,
     SeederController,
+    FreedomwallController,
     Auth\RegisterController,
     Auth\LoginController,
     CMS\QuestionController,
@@ -31,6 +32,8 @@ Route::get('/login', [LoginController::class, 'index'])
     ->name('login');
 Route::post('Login/check', [LoginController::class, 'login'])
     ->name('login.check');
+// freedom wall
+Route::resource('/freedomwall', FreedomwallController::class);
 
 // Superadmin
 Route::middleware(['auth', 'role:superadmin'])

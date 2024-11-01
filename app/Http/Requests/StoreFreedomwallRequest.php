@@ -15,7 +15,8 @@ class StoreFreedomwallRequest extends FormRequest
     {
         return [
             'nick_name' =>  ['nullable', 'string', 'max:255'],
-            'post'      =>  ['required', 'string', 'max:255'],
+            'title'     =>  ['required', 'string', 'max:100'],
+            'post'      =>  ['required', 'string'],
         ];
     }
 }
