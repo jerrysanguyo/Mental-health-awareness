@@ -59,7 +59,7 @@ class ResponseService
         }
 
         // Generate a concise summary using OpenAI
-        $summaryPrompt = "Summarize the following recommendations concisely:\n" . $recommendationTexts;
+        $summaryPrompt = "Summarize the following recommendations in a cohesive narrative without using numbers or a list format. Make it a concise, continuous summary that captures the essence of all recommendations:\n" . $recommendationTexts;
         $conciseSummary = $this->openAIService->generateResponse($summaryPrompt);
 
         // Store the summary in the summaries table

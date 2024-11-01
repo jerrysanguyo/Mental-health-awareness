@@ -6,29 +6,56 @@
         <div class="col-md-12">
             <div class="card border shadow">
                 <div class="card-body">
-                    <!-- @if(session('recommendations'))
-                        <div class="alert alert-info">
-                            <h4>OpenAI Recommendations</h4>
-                            <ul class="list-unstyled">
-                                @foreach(session('recommendations') as $recommendation)
-                                    <li class="mb-3">
-                                        <strong>Question:</strong> {{ $recommendation['question'] }}<br>
-                                        <strong>Your Answer:</strong> {{ $recommendation['answer'] }}<br>
-                                        <strong>Recommendation:</strong> {{ $recommendation['recommendation'] }}
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif -->
-                    @if($summary)
-                        @foreach($summary as $sum)
+                    <!-- Loading Spinner HTML -->
+                    <div id="loading-spinner" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.8); z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                        <div class="spinner" style="margin-bottom: 15px;"></div>
+                        <span style="font-size: 18px; color: #333;">OpenAI is still generating your recommendation, please wait...</span>
+                    </div>
+
+                    <!-- Summary Container -->
+                    <div id="summary">
+                        @if($summary)
+                            @foreach($summary as $sum)
                             <div class="alert alert-primary mt-4">
-                                <h4>Summary of Recommendations</h4>
+                                <h4>Summary of Recommendations by OpenAI</h4>
                                 <p>{{ $sum->summary }}</p>
                             </div>
-                        @endforeach
-                    @endif
-                    
+                            @endforeach
+                        @endif
+                    </div>
+
+                    <!-- Recommendations Container -->
+                    <div id="recommendations">
+                        @if($recomCheck)
+                            <div class="alert alert-info">
+                                <h2 class="mb-3">OpenAI Recommendations for Your Assessment</h2>
+                                @foreach($recommendations as $recom)
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <h5>Question:</h5>
+                                        </div>
+                                        <div class="col-lg-10">
+                                            <span>{{ $recom->response->question->name ?? '' }}</span>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <h5>Answer:</h5>
+                                        </div>
+                                        <div class="col-lg-10">
+                                            <span>{{ $recom->response->answer->name ?? '' }}</span>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <h5>Recommendation:</h5>
+                                        </div>
+                                        <div class="col-lg-10">
+                                            <span>{{ $recom->recommendation ?? '' }}</span>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                @endforeach
+                            </div>
+                        @endif
+                    </div>
+
                     @if(!$recomCheck)
                     <h1 class="mb-5">Mental Health Assessment</h1>
                         <form action="{{ route($userRole . '.response.store') }}" method="POST">
@@ -54,44 +81,23 @@
                             @endforeach
                             <input type="submit" value="Submit" class="btn btn-primary float-end">
                         </form>
-                    @else
-                    <div class="alert alert-info">
-                        <h2 class="mb-3">OpenAI Recommendations for Your Assessment</h2>
-                        @foreach($recommendations as $recom)
-                            <div class="row">
-                                <div class="row">
-                                    <div class="col-lg-2">
-                                        <h5>Question:</h5>
-                                    </div>
-                                    <div class="col-lg-10">
-                                        <!-- can't fetch instantly. -->
-                                        <span>{{ $recom->response->question->name ?? '' }}</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-2">
-                                        <h5>Answer:</h5>
-                                    </div>
-                                    <div class="col-lg-10">
-                                        <span>{{ $recom->response->answer->name ?? '' }}</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-2">
-                                        <h5>Recommendation:</h5>
-                                    </div>
-                                    <div class="col-lg-10">
-                                        <span>{{ $recom->recommendation ?? '' }}</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                        @endforeach
-                    </div>
                     @endif
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    // Show spinner on browser navigation and form submissions
+    window.addEventListener('beforeunload', function() {
+        document.getElementById('loading-spinner').style.display = 'flex';
+    });
+
+    // Hide spinner once the page has fully loaded
+    window.addEventListener('load', function() {
+        document.getElementById('loading-spinner').style.display = 'none';
+    });
+</script>
+
 @endsection
