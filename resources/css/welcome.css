@@ -49,12 +49,12 @@ body {
 
 @media (max-width: 2560px) {
     #glow{
-        padding-top: 20%;
-        font-size: 12em;
+        padding-top: 10%;
+        font-size: 6em;
     }
 
     #logo{
-        width:60%;
+        width:50%;
     }
 
     #touch{
