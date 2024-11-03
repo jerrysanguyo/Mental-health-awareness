@@ -17,7 +17,7 @@
                         </div>
                     </div>
                     <div class="row mt-3">
-                        <div class="d-flex no-wrap justify-content-between align-content-center">
+                        <div class="">
                             <div class="row">
                             @foreach($posts as $post)
                                 <div class="col-lg-3 col-md-6 col-sm-12 mt-2">
