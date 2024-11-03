@@ -44,5 +44,67 @@ body {
 }
 
 #logo{
-    width:12%;
+    width:40%;
+}
+
+@media (max-width: 2560px) {
+    #glow{
+        padding-top: 20%;
+        font-size: 12em;
+    }
+
+    #logo{
+        width:60%;
+    }
+
+    #touch{
+        padding-top: 5%;
+        width:20%
+    }
+}
+
+@media (max-width: 1024px) {
+    #glow{
+        padding-top: 20%;
+        font-size: 9em;
+    }
+
+    #logo{
+        width:100%;
+    }
+
+    #touch{
+        padding-top: 5%;
+        width:20%
+    }
+}
+
+@media (max-width: 768px) {
+    #glow{
+        padding-top: 20%;
+        font-size: 6em;
+    }
+
+    #logo{
+        width:100%;
+    }
+
+    #touch{
+        width:20%
+    }
+}
+
+@media (max-width: 576px) {
+    #glow{
+        padding-top: 30%;
+        font-size: 5em;
+    }
+
+    #logo{
+        width:100%;
+    }
+
+    #touch{
+        width:30%
+    }
 }

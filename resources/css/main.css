@@ -112,6 +112,44 @@ img {
 .bg-periwinkle { background-color: #CCCCFF; }  
 .bg-blush { background-color: #FFC0CB; }       
 
+
+@media (max-width: 2560px) {
+    .merged-text {
+        font-size: 20px;
+    }
+
+    img {
+        width: 100%; 
+        height: auto;
+    }
+    .nav-link {
+        font-size: 3em;
+    }
+}
+
+@media (max-width: 1440px) {
+    .merged-text {
+        font-size: 20px;
+    }
+
+    img {
+        width:100%; 
+        height: auto;
+    }
+    .nav-link {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 1024px) {
+    .merged-text {
+        font-size: 20px;
+    }
+    .nav-link {
+        font-size: 1.5em;
+    }
+}
+
 @media (max-width: 992px) {
     .merged-text {
         font-size: 20px;
@@ -120,6 +158,7 @@ img {
     img {
         width:100%; 
         height: auto;
+        padding-bottom: 10%;
     }
 }
 
