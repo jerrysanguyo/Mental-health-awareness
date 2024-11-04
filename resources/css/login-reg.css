@@ -11,3 +11,17 @@ body {
     background-size: cover; */
     background-color: #FAF9F6;
 }
+
+@media (max-width: 4096px) {
+    .fs-1 {
+        font-size: 8em !important;
+    }
+
+    .fs-6 {
+        font-size: 3em !important;
+    }
+
+    label {
+        font-size: 3em !important;
+    }
+}

@@ -47,6 +47,22 @@ body {
     width:40%;
 }
 
+@media (max-width: 4096px) {
+    #glow{
+        padding-top: 10%;
+        font-size: 18em;
+    }
+
+    #logo{
+        width:50%;
+    }
+
+    #touch{
+        padding-top: 5%;
+        width:20%
+    }
+}
+
 @media (max-width: 2560px) {
     #glow{
         padding-top: 10%;

@@ -1,11 +1,11 @@
 @extends('layouts.auth.login-reg')
 
 @section('content')
-    <div class="container mt-3">
+    <div class="container-fluid mt-3">
         <div class="row justify-content-center align-items-center" style="height: 80vh;">
             <div class="col-lg-8 col-md-12">
                 <div class="card border-0 shadow">
-                    <div class="card-body d-flex align-items-center" style="min-height: 300px;">
+                    <div class="card-body d-flex align-items-center box">
                         <div class="row w-100">
                             <div class="col-md-4 d-flex justify-content-center align-items-center">
                                 <div class="text-center">

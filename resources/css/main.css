@@ -112,6 +112,33 @@ img {
 .bg-periwinkle { background-color: #CCCCFF; }  
 .bg-blush { background-color: #FFC0CB; }       
 
+@media (max-width: 4096px) {
+    .merged-text {
+        font-size: 1em;
+    }
+
+    h1 {
+        font-size: 10em;
+    }
+
+    h3 {
+        font-size: 5em;
+    }
+
+    img {
+        width: 100%; 
+        height: auto;
+        max-height: none;
+    } 
+
+    .nav-link {
+        font-size: 5em;
+    }
+    
+    .card-title {
+        font-size: 15em;
+    }
+}
 
 @media (max-width: 2560px) {
     .merged-text {
