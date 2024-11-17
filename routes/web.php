@@ -7,6 +7,7 @@ use App\Http\Controllers\{
     PublicController,
     SeederController,
     FreedomwallController,
+    GameController,
     Auth\RegisterController,
     Auth\LoginController,
     CMS\QuestionController,
@@ -34,6 +35,13 @@ Route::post('Login/check', [LoginController::class, 'login'])
     ->name('login.check');
 // freedom wall
 Route::resource('/freedomwall', FreedomwallController::class);
+// Game
+Route::get('game/endless', [GameController::class, 'endless'])
+->name('game.endless');
+Route::get('game/flappy', [GameController::class, 'flappy'])
+    ->name('game.flappy');
+Route::get('game/tictactoe', [GameController::class, 'tictactoe'])
+    ->name('game.tictactoe');
 
 // Superadmin
 Route::middleware(['auth', 'role:superadmin'])
