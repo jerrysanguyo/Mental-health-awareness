@@ -29,7 +29,7 @@
 </head>
 <body>
     <canvas id="canvas"></canvas>
-    <button id="startButton" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 10px 20px; font-size: 20px; cursor: pointer;">Click to Play</button>
+    <button id="startButton" class="retro-button">Click to Play</button>
    
     <audio id="jumpSound" src="/image/game/flappy/jump.mp3"></audio>
     <audio id="gameOverSound" src="/image/game/flappy/game-over.mp3"></audio>

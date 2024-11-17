@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 body {
   margin: 0;
   padding: 0;
   text-align: center;
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Press Start 2P', 'Courier New', monospace; /* Retro font family */
   user-select: none;
+  background-color: #000; /* Optional: add a retro dark background */
+  color: #fff; /* Retro white text */
 }
 
 header {
@@ -20,6 +24,8 @@ h1 {
   background-position: 0% 340px;
   padding: 1.2rem 0;
   margin: 0;
+  font-size: 2rem; /* Larger size for a retro display */
+  color: #000; /* Match text color with the retro theme */
 }
 
 .score-container {
@@ -28,9 +34,57 @@ h1 {
   padding: 8px 6px;
   background: #5EE270;
   border-bottom: 2px solid #4CAF50;
+  font-size: 1rem; /* Adjust font size for retro appearance */
 }
 
 canvas {
   margin-top: 90px; /* This matches the height of the header */
   display: block;
+  border: 2px solid #4CAF50; /* Add a retro border */
+}
+
+/* Add some retro-inspired button styles */
+button {
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  background-color: #FF6347; /* Retro color */
+  border: none;
+  padding: 10px 20px;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 5px #CD5C5C;
+}
+
+button:active {
+  box-shadow: 0 2px #CD5C5C;
+  transform: translateY(3px);
+}
+
+/* Retro button styling */
+.retro-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px 30px; /* Adjusted for a more retro feel */
+  font-size: 18px;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  cursor: pointer;
+  background-color: #FF6347; /* Retro, bold color */
+  color: #fff;
+  border: 3px solid #CD5C5C; /* Thicker border for retro effect */
+  text-transform: uppercase;
+  letter-spacing: 2px; /* Retro spacing */
+  box-shadow: 0 5px #CD5C5C; /* Retro shadow effect */
+  transition: all 0.2s ease;
+}
+
+.retro-button:active {
+  box-shadow: 0 2px #CD5C5C; /* Retro pressed effect */
+  transform: translate(-50%, -50%) translateY(3px);
+}
+
+/* Optional hover effect */
+.retro-button:hover {
+  background-color: #FF4500; /* Slightly darker for hover effect */
 }
