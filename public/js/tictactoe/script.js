@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetButton = document.getElementById('resetButton');
     const scoreXDisplay = document.getElementById('scoreX');
     const scoreODisplay = document.getElementById('scoreO');
+    const placeSound = document.getElementById('placeSound');
+    const winSound = document.getElementById('winSound');
 
     let currentPlayer = 'X';
     let boardState = Array(9).fill(null);
@@ -26,6 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
             boardState[index] = currentPlayer;
             target.textContent = currentPlayer;
             target.classList.add('taken');
+
+            // Play place sound on each move
+            placeSound.currentTime = 0; // Reset audio to the beginning
+            placeSound.play();
+
             checkWinner();
             currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
         }
@@ -49,6 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const [a, b, c] = pattern;
             if (boardState[a] && boardState[a] === boardState[b] && boardState[a] === boardState[c]) {
                 message.textContent = `Player ${boardState[a]} wins!`;
+
+                // Play win sound when a player wins
+                winSound.currentTime = 0; // Reset audio to the beginning
+                winSound.play();
+
                 updateScore(boardState[a]);
                 gameActive = false;
                 return;

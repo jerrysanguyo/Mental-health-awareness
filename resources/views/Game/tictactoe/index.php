@@ -15,6 +15,11 @@
     <div id="board" class="board"></div>
     <p id="message"></p>
     <button id="resetButton">Reset Game</button>
+
+    <!-- Add audio elements -->
+    <audio id="placeSound" src="/image/game/tictactoe/place.mp3"></audio>
+    <audio id="winSound" src="/image/game/tictactoe/win.mp3"></audio>
+
     <script src="/js/tictactoe/script.js"></script>
 </body>
 </html>
