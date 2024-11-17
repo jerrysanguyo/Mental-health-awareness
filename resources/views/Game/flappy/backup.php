@@ -168,20 +168,16 @@
         });
 
         // Handle mario jump and play jump sound
-        function handleJump() {
+        window.onclick = () => {
             jumpSound.currentTime = 0; // Reset audio to the beginning
             jumpSound.play().catch(err => {
                 console.error('Audio play failed:', err);
-            }); // Play jump sound on click or touch
+            }); // Play jump sound on click
 
             if (gamePlaying) {
                 flight = jump;
             }
-        }
-
-        // Add event listeners for both click and touch events
-        window.addEventListener('click', handleJump);
-        window.addEventListener('touchstart', handleJump);
+        };
     </script>
 </body>
 </html>
