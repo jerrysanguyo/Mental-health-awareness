@@ -14,4 +14,15 @@ class FreedomwallService
             'post'      =>  $data['post'],
         ]);
     }
+
+    public function update($freedomwall, array $data): Freedomwall
+    {
+        $freedomwall->update([
+            'nick_name' =>  $data['nick_name'],
+            'title'     =>  $data['title'],
+            'post'      =>  $data['post'],
+        ]);
+
+        return $freedomwall;
+    }
 }

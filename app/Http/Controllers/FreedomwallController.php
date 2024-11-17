@@ -33,4 +33,18 @@ class FreedomwallController extends Controller
         return redirect()->route('freedomwall.index')
             ->with('success', 'Posted successfully!');
     }
+
+    public function edit(Freedomwall $freedomwall)
+    {
+        return view('freedom.edit', compact('freedomwall'));
+    }
+
+    public function update(StoreFreedomwallRequest $request, $freedomwall)
+    {
+        $id = Freedomwall::findOrFail($freedomwall);
+        $this->freedomwallService->update($id, $request->validated());
+
+        return redirect()->route('freedomwall.edit', $id)
+            ->with('success', 'Post updated successfully!');
+    }
 }

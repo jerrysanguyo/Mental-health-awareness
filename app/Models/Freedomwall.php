@@ -18,6 +18,6 @@ class Freedomwall extends Model
 
     public static function getAllPosts()
     {
-        return self::all();
+        return self::orderBy('created_at', 'desc')->get();
     }
 }

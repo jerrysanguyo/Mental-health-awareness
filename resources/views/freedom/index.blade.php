@@ -32,6 +32,9 @@
                                             <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#viewPostModal{{ $post->id }}">
                                                 View more
                                             </button>
+                                            <a href="{{ route('freedomwall.edit', $post->id) }}">
+                                                <button type="button" class="btn btn-primary">Edit</button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
